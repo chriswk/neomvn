@@ -1,0 +1,36 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: 'application'
+group = 'neomvn'
+  version = '1.0-SNAPSHOT'
+  
+
+description = """"""
+
+sourceCompatibility = 1.5
+targetCompatibility = 1.5
+
+mainClassName = "com.github.rickardoberg.neomvn.Main"
+
+repositories {
+        
+     mavenRepo url: "http://repo.maven.apache.org/maven2"
+}
+dependencies {
+    compile group: 'org.apache.maven', name: 'maven-model', version:'3.0.3'
+    compile group: 'org.neo4j', name: 'neo4j-kernel', version:'1.9.M05'
+    compile group: 'org.neo4j', name: 'neo4j-lucene-index', version:'1.9.M05'
+    compile group: 'org.slf4j', name: 'slf4j-api', version:'1.7.3'
+    compile group: 'org.slf4j', name: 'slf4j-simple', version:'1.7.3'
+    compile group: 'org.apache.maven', name: 'maven-model-builder', version:'3.0.3'
+  }
+
+run {
+	if ( project.hasProperty('args') ) {
+	       args project.args.split('\\s+')
+	   }
+}
+
+task wrapper(type: Wrapper) {
+	gradleVersion = 1.5
+}

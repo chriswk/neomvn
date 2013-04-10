@@ -1,4 +1,4 @@
-Maven repository importer for Neo4j
+Gradle repository importer for Neo4j
 ============================================================
 
 This little nifty tool will allow you to import your local Maven repository information into a Neo4j graph, in particular dependencies between artifacts. You can then
@@ -8,10 +8,10 @@ WARNING: if you open webadmin and use the graph visualization, whatever you do d
 
 Usage
 -----
-* Clone and build using Maven
-* Run the Main class from command line with location of Maven repo as argument. Example:
+* Clone it
+* Run using
 ```
-java -jar neomvn-1.0-SNAPSHOT.jar /Users/rickard/.m2/repository
+./gradlew run -Pargs=/Users/chrkolst/.m2/repository
 ```
 
 * This will import and index your local Maven repository into a Neo4j graph database created under "neomvn" directory, from where the tool was invoked.
